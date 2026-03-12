@@ -1,9 +1,33 @@
 {% extends "authentic/base.html" %}
+
 {% block content %}
+
+<div class="container mt-5">
+
+  <div class="row justify-content-center">
+
+
+<div class="col-md-6 text-center">
+
+  <div class="content-section p-4">
+
     <h2>You have been logged out</h2>
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            <a href="{% url 'login' %}">Log In Again</a>
-        </small>
-    </div>
-{% endblock content %}
+
+    <p class="text-muted mt-3">
+      Thanks for visiting Grummy. We hope to see you again soon!
+    </p>
+
+    <a class="btn btn-danger mt-3" href="{% url 'login' %}">
+      Log In Again
+    </a>
+
+  </div>
+
+</div>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

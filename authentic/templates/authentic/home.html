@@ -1,15 +1,70 @@
 {% extends "authentic/base.html" %}
+{% load static %}
+
 {% block content %}
-    {% for post in posts %}
-        <article class="media content-section">
-        <div class="media-body">
-            <div class="article-metadata">
-            <a class="mr-2" href="#">{{ post.author }}</a>
-            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
-        </div>
-        </article>
-    {% endfor %}
-{% endblock content %}
+
+<!-- Hero Section -->
+
+<section class="hero section">
+  <div class="container">
+    <div class="row align-items-center">
+
+
+  <div class="col-lg-6">
+    <h1>Enjoy Your Healthy Delicious Food</h1>
+
+    <p>
+      Welcome to Grummy — a place where food lovers share recipes,
+      experiences, and discover amazing dishes.
+    </p>
+
+    <a href="{% url 'task-list' %}" class="btn-get-started">
+      View Tasks
+    </a>
+  </div>
+
+  <div class="col-lg-6">
+    <img src="{% static 'authentic/img/menu/menu-item-1.png' %}" class="img-fluid">
+  </div>
+
+</div>
+
+
+  </div>
+</section>
+
+<!-- Blog Posts -->
+
+{% for post in posts %}
+
+<article class="media content-section">
+
+  <div class="media-body">
+
+
+<div class="article-metadata">
+  <a class="mr-2" href="#">{{ post.author }}</a>
+
+  <small class="text-muted">
+    {{ post.date_posted|date:"F d, Y" }}
+  </small>
+</div>
+
+<h2>
+  <a class="article-title" href="#">
+    {{ post.title }}
+  </a>
+</h2>
+
+<p class="article-content">
+  {{ post.content }}
+</p>
+
+
+  </div>
+
+</article>
+
+{% endfor %}
+
+{% endblock %}
