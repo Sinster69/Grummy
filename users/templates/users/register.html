@@ -7,36 +7,51 @@
 
   <div class="row justify-content-center">
 
+    <div class="col-md-6">
 
-<div class="col-md-6">
+      <div class="content-section p-4">
 
-  <div class="content-section p-4">
+        <form method="POST">
 
-    <form method="POST">
+          {% csrf_token %}
 
-      {% csrf_token %}
+          <fieldset class="form-group">
 
-      <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+              Join Today
+            </legend>
 
-        <legend class="border-bottom mb-4">
-          Join Today
-        </legend>
+            {{ form|crispy }}
 
-        {{ form|crispy }}
+          </fieldset>
 
-      </fieldset>
+          <div class="form-group">
 
-      <div class="form-group">
+            <button class="btn btn-danger btn-block" type="submit">
+              Sign Up
+            </button>
 
-        <button class="btn btn-danger btn-block" type="submit">
-          Sign Up
-        </button>
+          </div>
+
+        </form>
+
+        <div class="border-top pt-3 text-center">
+
+          <small class="text-muted">
+            Already have an account?
+            <a class="ml-2" href="{% url 'login' %}">
+              Sign In
+            </a>
+          </small>
+
+        </div>
 
       </div>
 
-    </form>
+    </div>
 
-    <div class="border-top pt-3 text-center">
+  </div>
 
-      <small class="text-mute
+</div>
 
+{% endblock %}

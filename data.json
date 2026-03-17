@@ -1,0 +1,119 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$ss9AhUnOvebdMZ9XWgzxIy$Jwj+BsTZG50qKmHA0TjvG7uj+0j0Wb6UiSNSIcryqPY=",
+    "last_login": "2026-03-13T11:01:08.797Z",
+    "is_superuser": true,
+    "username": "PranavSin",
+    "first_name": "",
+    "last_name": "",
+    "email": "pranavjaganani@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-10T10:58:29.336Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$u3qfhSLexjSnRgIEb5L8Dw$/UQLoy/cx8hjlrUob3yAeCPbN4Zcp9UW44tsK0xSdas=",
+    "last_login": "2026-03-12T12:10:26.635Z",
+    "is_superuser": false,
+    "username": "Ritz",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-10T13:18:46.565Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "image": "profile_pics/Ritz.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "authentic.post",
+  "pk": 1,
+  "fields": {
+    "title": "Blog 1",
+    "content": "First Blog Post!",
+    "date_posted": "2026-03-10T12:21:13.062Z",
+    "author": 1,
+    "restaurant": null
+  }
+},
+{
+  "model": "authentic.post",
+  "pk": 2,
+  "fields": {
+    "title": "Ritz Blog",
+    "content": "I love Lotus Biscoff cakes!!!",
+    "date_posted": "2026-03-10T12:38:46Z",
+    "author": 2,
+    "restaurant": null
+  }
+},
+{
+  "model": "authentic.post",
+  "pk": 3,
+  "fields": {
+    "title": "Blog 3",
+    "content": "Third Post Content!",
+    "date_posted": "2026-03-10T12:59:13.839Z",
+    "author": 1,
+    "restaurant": null
+  }
+},
+{
+  "model": "tasks.restaurant",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "name": "Dominos",
+    "address": "HBR Layout, Bangalore",
+    "created_at": "2026-03-12T07:52:38.466Z"
+  }
+},
+{
+  "model": "tasks.restaurant",
+  "pk": 2,
+  "fields": {
+    "owner": 2,
+    "name": "Ritz's Restaurant",
+    "address": "",
+    "created_at": "2026-03-12T09:39:44.364Z"
+  }
+},
+{
+  "model": "tasks.deliverytask",
+  "pk": 15,
+  "fields": {
+    "title": "Redis",
+    "description": "database",
+    "restaurant": 1,
+    "customer": 1,
+    "status": "pending",
+    "created_at": "2026-03-13T11:01:25.583Z"
+  }
+}
+]
