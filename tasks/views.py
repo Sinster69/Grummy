@@ -5,14 +5,12 @@ from django.core.cache import cache
 
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.authentication import BasicAuthentication
 
 from .models import DeliveryTask, Restaurant
 from .serializers import DeliveryTaskSerializer
 from .tasks import send_task_email
-from .ai_service import get_ai_suggestions
 
 logger = logging.getLogger(__name__)
 
@@ -113,7 +111,7 @@ def complete_task(request, task_id):
 
     task = DeliveryTask.objects.get(id=task_id, restaurant=restaurant)
 
-    task.status = "completed"
+    task.status = "delivered"
     task.save()
 
     # Invalidate cache
@@ -142,13 +140,3 @@ def delete_task(request, task_id):
     logger.info(f"Task deleted: {task.title}")
 
     return redirect("task-list")
-
-
-@api_view(["POST"])
-def ai_suggest(request):
-    title = request.data.get("title")
-    description = request.data.get("description")
-
-    result = get_ai_suggestions(title, description)
-
-    return Response({"suggestions": result})

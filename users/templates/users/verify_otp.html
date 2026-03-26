@@ -2,12 +2,76 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
 <div class="container mt-5">
-  <h3>Enter OTP</h3>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button class="btn btn-success">Verify</button>
-  </form>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+      <div class="content-section p-4">
+
+        <form method="POST">
+
+          {% csrf_token %}
+
+          <fieldset class="form-group text-center">
+
+            <legend class="border-bottom mb-4">
+              🔐 Verify OTP
+            </legend>
+
+            <p class="text-muted mb-4">
+              Enter the 6-digit OTP sent to your email
+            </p>
+
+            <div class="form-group">
+            <input type="text" name="otp"
+                    class="form-control text-center"
+                    placeholder="Enter OTP"
+                    maxlength="6"
+                    required>
+            </div>
+
+          </fieldset>
+
+          <!-- ERROR MESSAGE -->
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-danger">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+
+          <div class="form-group">
+
+            <button class="btn btn-danger btn-block" type="submit">
+              Verify OTP
+            </button>
+
+          </div>
+
+        </form>
+
+        <!-- RESEND OPTION -->
+        <div class="border-top pt-3 text-center">
+
+          <small class="text-muted">
+            Didn’t receive OTP?
+            <a class="ml-2" href="#">
+              Resend
+            </a>
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
+
 {% endblock %}

@@ -20,4 +20,4 @@ class UserRegisterForm(UserCreationForm):
 
 
 class OTPForm(forms.Form):
-    opt = forms.CharField(max_length=6)
+    otp = forms.CharField(max_length=6)

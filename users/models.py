@@ -1,6 +1,7 @@
 import random
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Profile(models.Model):
@@ -17,4 +18,6 @@ class EmailOTP(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def generate_otp(self):
-        return str(random.randint(100000, 999999))
+        self.otp = str(random.randint(100000, 999999))
+        self.created_at = timezone.now()
+        self.save()

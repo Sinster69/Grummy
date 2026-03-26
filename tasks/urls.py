@@ -5,7 +5,6 @@ from .views import (
     task_list,
     complete_task,
     delete_task,
-    ai_suggest,
 )
 
 router = DefaultRouter()
@@ -16,5 +15,4 @@ urlpatterns = [
     path("tasks/", task_list, name="task-list"),
     path("tasks/complete/<int:task_id>/", complete_task, name="complete-task"),
     path("tasks/delete/<int:task_id>/", delete_task, name="delete-task"),
-    path("ai/suggest/", ai_suggest),
 ]
