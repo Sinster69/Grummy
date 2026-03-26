@@ -17,3 +17,7 @@ class UserRegisterForm(UserCreationForm):
             raise forms.ValidationError("This email is already registered.")
 
         return email
+
+
+class OTPForm(forms.Form):
+    opt = forms.CharField(max_length=6)
